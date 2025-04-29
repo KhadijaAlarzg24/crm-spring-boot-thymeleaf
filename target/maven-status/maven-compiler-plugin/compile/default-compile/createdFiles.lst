@@ -1,0 +1,4 @@
+com\bmt\webapp\models\client.class
+com\bmt\webapp\repositories\ClientRepository.class
+com\bmt\webapp\WebappApplication.class
+com\bmt\webapp\ClientsController.class

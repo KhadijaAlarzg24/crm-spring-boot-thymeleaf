@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Client Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto rounded p-4">
+            <h1 class="text-center mb-5">Edit Client</h1>
+
+            <form method="post" th:object="${clientDto}">
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label">Client ID</label>
+                    <div class="col-sm-8">
+                        <input class="form-control-plaintext" readonly th:value="${client.id}">
+
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label">First Name</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" th:field="*{firstName}">
+                        <p th:if="${#fields.hasErrors('firstName')}"
+                           th:errorclass="text-danger"
+                           th:errors="*{firstName}"></p>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label">Last Name</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" th:field="*{lastName}">
+                        <p th:if="${#fields.hasErrors('lastName')}"
+                           th:errorclass="text-danger"
+                           th:errors="*{lastName}"></p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label">Email</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" th:field="*{email}">
+                        <p th:if="${#fields.hasErrors('email')}"
+                           th:errorclass="text-danger"
+                           th:errors="*{email}"></p>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label">phone</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" th:field="*{phone}">
+                        <p th:if="${#fields.hasErrors('phone')}"
+                           th:errorclass="text-danger"
+                           th:errors="*{phone}"></p>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label">address</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" th:field="*{address}">
+                        <p th:if="${#fields.hasErrors('address')}"
+                           th:errorclass="text-danger"
+                           th:errors="*{address}"></p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label">Status</label>
+                    <div class="col-sm-8">
+                        <select class="form-select" th:field="*{status}">
+                            <option value='New'>New</option>
+                            <option value='Permanent'>Permanent</option>
+                            <option value='Lead'>Lead</option>
+                            <option value='Occasional'>Occasional</option>
+                            <option value='Inactive'>Inactive</option>
+                        </select>
+                        <p th:if="${#fields.hasErrors('status')}" th:errorclass="text-danger" th:errors="*{status}"></p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label">Criated AT</label>
+                    <div class="col-sm-8">
+                        <input class="form-control-plaintext" readonly th:value="${client.createdAt}">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-sm-4 col-sm-4 d-grid">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <div class="col-sm-4 d-grid">
+                        <button type="button" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
